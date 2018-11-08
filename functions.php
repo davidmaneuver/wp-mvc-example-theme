@@ -4,8 +4,10 @@
  * This theme requires the Timber plugin.
  */
 if (!class_exists('Timber')){
-  echo 'Timber is not activated. Make sure you activate the plugin in <a href="/wp-admin/plugins.php#timber">/wp-admin/plugins.php</a>';
-  return;
+	add_action( 'admin_notices', function() {
+		echo '<div class="error"><p>Timber not activated. Make sure you activate the plugin in <a href="' . esc_url( admin_url( 'plugins.php#timber' ) ) . '">' . esc_url( admin_url( 'plugins.php' ) ) . '</a></p></div>';
+	});
+	return;
 }
 
 /**
