@@ -31,10 +31,8 @@ if ($locs = get_nav_menu_locations()) {
  * Retrieve posts.
  **/
 if (is_singular()) {
-  $post = \Timber::get_post();
-  $context['post'] = $post;
+  $context['post'] = \Timber::get_post();
   $context['is_preview'] = is_preview();
 } else {
-  $posts = \Timber::get_posts();
-  $context['posts'] = $posts;
+  $context['posts'] = \Timber::get_posts();
 }
