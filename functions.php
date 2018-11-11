@@ -30,3 +30,11 @@ function wp_mvc_init() {
   );
 }
 add_action( 'init', 'wp_mvc_init' );
+
+/* Serve 404 header when loading the notound.twig tenplate */
+add_filter('timber_render_file', function($template) {
+  if (strpos($template, 'notfound.twig')) {
+    status_header(404);
+  }
+  return $template;
+});
